@@ -4,9 +4,8 @@ namespace CodeProject\Http\Controllers;
 
 use CodeProject\Client;
 use Illuminate\Http\Request;
-
 use CodeProject\Http\Requests;
-use CodeProject\Http\Controllers\Controller;
+
 
 class ClientController extends Controller
 {
@@ -21,16 +20,6 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
@@ -38,7 +27,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Client::create($request->all());
     }
 
     /**
@@ -49,21 +38,10 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        return Client::find($id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
+     /**
      * Update the specified resource in storage.
      *
      * @param  Request  $request
@@ -72,7 +50,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return Client::find($id)->update($request->all());
     }
 
     /**
@@ -83,6 +61,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Client::find($id)->delete();
     }
 }
