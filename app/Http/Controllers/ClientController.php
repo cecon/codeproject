@@ -67,7 +67,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->clientService->find($id)->update($request->all());
+        return $this->clientService->update($request->all(), $id);
     }
 
     /**

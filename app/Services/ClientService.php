@@ -66,4 +66,19 @@ class ClientService
             ];
         }
     }
+
+    public function delete($id)
+    {
+        return $this->repository->delete($id);
+    }
+
+    public function all()
+    {
+        return $this->repository->all();
+    }
+
+    public function findById($id)
+    {
+        return $this->repository->find($id);
+    }
 }
