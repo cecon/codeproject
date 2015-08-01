@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProjectsTable extends Migration
 {
@@ -14,15 +15,15 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('owner_id');
+            $table->integer('owner_id')->unsigned();
             $table->foreign('owner_id')->references('id')->on('users');
-            $table->integer('client_id');
-            $table->foreign('client_id')->references(id)->on('clients');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->string('name');
             $table->text('description');
-            $table->string('progress');
-            $table->string('status');
-            $table->dateTime('due_date');
+            $table->smallInteger('progress');
+            $table->smallInteger('status');
+            $table->date('due_date');
             $table->timestamps();
         });
     }
