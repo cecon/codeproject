@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -22,7 +23,7 @@ class Kernel extends HttpKernel
         AddQueuedCookiesToResponse::class,
         StartSession::class,
         ShareErrorsFromSession::class,
-        LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware::class,
+        OAuthExceptionHandlerMiddleware::class,
     ];
 
     /**
@@ -35,6 +36,9 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \CodeProject\Http\Middleware\RedirectIfAuthenticated::class,
         'csrf' =>  \CodeProject\Http\Middleware\VerifyCsrfToken::class,
+        'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
+        'oauth-owner' => \LucaDegasperi\OAuth2Server\Middleware\OAuthOwnerMiddleware::class,
+        'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class
 
     ];
 }

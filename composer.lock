@@ -371,7 +371,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a1dc78820d2dbf207dbdf0f7075f17f7021c4ee8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2f1e0b8d7c24bb783d3a8d4fe4120ef82e5da648",
                 "reference": "a1dc78820d2dbf207dbdf0f7075f17f7021c4ee8",
                 "shasum": ""
             },
@@ -690,12 +690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucadegasperi/oauth2-server-laravel.git",
-                "reference": "61f91aa6b4e7ea7f79eda1e9d937f9400bb97fc1"
+                "reference": "c3e4856210daf9cf0bfc5e9916004c94bea870bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucadegasperi/oauth2-server-laravel/zipball/61f91aa6b4e7ea7f79eda1e9d937f9400bb97fc1",
-                "reference": "61f91aa6b4e7ea7f79eda1e9d937f9400bb97fc1",
+                "url": "https://api.github.com/repos/lucadegasperi/oauth2-server-laravel/zipball/c3e4856210daf9cf0bfc5e9916004c94bea870bd",
+                "reference": "c3e4856210daf9cf0bfc5e9916004c94bea870bd",
                 "shasum": ""
             },
             "require": {
@@ -736,15 +736,16 @@
                     "email": "packages@lucadegasperi.com"
                 }
             ],
-            "description": "Laravel wrapper for the OAuth 2.0 Server package league/oauth2-server.",
+            "description": "A OAuth 2.0 bridge for Laravel and Lumen",
             "keywords": [
                 "api",
                 "laravel",
+                "lumen",
                 "oauth",
                 "oauth2",
                 "server"
             ],
-            "time": "2015-07-31 13:49:07"
+            "time": "2015-08-04 16:18:10"
         },
         {
             "name": "monolog/monolog",
@@ -1564,7 +1565,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/863af6898081b34c65d42100c370b9f3c51b70ca",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/38c326b689dda8f33223a74e30c42526c684fe2e",
                 "reference": "863af6898081b34c65d42100c370b9f3c51b70ca",
                 "shasum": ""
             },
@@ -1746,7 +1747,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/ea9134f277162b02e5f80ac058b75a77637b0d26",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/71fed8c6e21f6925c67ea2d4c7365a50d1989055",
                 "reference": "ea9134f277162b02e5f80ac058b75a77637b0d26",
                 "shasum": ""
             },
@@ -2422,7 +2423,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/a5402c806385366dc0bb5a885ff47685d129ddac",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/40103f9b335f1d84daed099f180b9de12ba080e7",
                 "reference": "a5402c806385366dc0bb5a885ff47685d129ddac",
                 "shasum": ""
             },
@@ -2662,7 +2663,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b4f866d456648e625dc37e224c618659f13d121",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0fe5ed323f0017624a65746153ae3fd69c308c1b",
                 "reference": "4b4f866d456648e625dc37e224c618659f13d121",
                 "shasum": ""
             },
@@ -2734,7 +2735,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/ca2e42cad8446a05691cc4327b7ce3ed45bfdb11",
                 "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
                 "shasum": ""
             },
@@ -2906,7 +2907,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/70c3ba9398826b0d0117c2e9f1922c3bc47644ce",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6324c907ce7a52478eeeaede764f48733ef5ae44",
                 "reference": "70c3ba9398826b0d0117c2e9f1922c3bc47644ce",
                 "shasum": ""
             },
