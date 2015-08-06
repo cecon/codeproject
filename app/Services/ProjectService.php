@@ -80,11 +80,11 @@ class ProjectService
 
     public function all()
     {
-        return $this->repository->all();
+        return $this->repository->with(['owner','client'])->all();
     }
 
     public function findById($id)
     {
-        return $this->repository->find($id);
+        return $this->repository->with(['owner','client'])->find($id);
     }
 }
