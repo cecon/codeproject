@@ -26,11 +26,10 @@ return [
     | http://git.io/vJLAv
     |
     */
-
     'grant_types' => [
         'password' => [
-            'class' => '\League\OAuth2\Server\Grant\PasswordGrand',
-            'callback' => '\CodeProject\OAuth\Verifier@veriy',
+            'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
+            'callback' => '\CodeProject\OAuth\Verifier@verify',
             'access_token_ttl' => 3600
         ]
     ],
