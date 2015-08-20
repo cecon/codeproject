@@ -30,6 +30,7 @@ class Kernel extends HttpKernel
         StartSession::class,
         ShareErrorsFromSession::class,
         OAuthExceptionHandlerMiddleware::class,
+        \LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware::class
     ];
 
     /**
@@ -42,8 +43,9 @@ class Kernel extends HttpKernel
         'auth.basic' => AuthenticateWithBasicAuth::class,
         'guest' => RedirectIfAuthenticated::class,
         'csrf' =>  VerifyCsrfToken::class,
-        'oauth' => OAuthMiddleware::class,
-        'check-authorization-params' => CheckAuthCodeRequestMiddleware::class
-
+        'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
+        'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
+        'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
+        'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class
     ];
 }
