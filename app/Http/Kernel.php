@@ -15,7 +15,6 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware;
 use LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware;
 use LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware;
-use LucaDegasperi\OAuth2Server\Middleware\OAuthOwnerMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -44,7 +43,6 @@ class Kernel extends HttpKernel
         'guest' => RedirectIfAuthenticated::class,
         'csrf' =>  VerifyCsrfToken::class,
         'oauth' => OAuthMiddleware::class,
-        'oauth-owner' => OAuthOwnerMiddleware::class,
         'check-authorization-params' => CheckAuthCodeRequestMiddleware::class
 
     ];
