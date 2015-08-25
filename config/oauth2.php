@@ -29,12 +29,11 @@ return [
     |
     */
     'grant_types' => [
-        'password' => [
-            'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
+        'password'=>[
+            'class'=> '\League\OAuth2\Server\Grant\PasswordGrant',
             'callback' => function($username, $password){
                 if(Auth::validate(['email'=>$username, 'password'=>$password])){
-                    $user = CodeProject\Entities\User::where('email', $username)->first();
-
+                    $user = \CodeProject\Entities\User::where('email', $username)->first();
                     return $user->id;
                 }
                 return false;
