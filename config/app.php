@@ -147,8 +147,8 @@ return [
         CodeProject\Providers\RouteServiceProvider::class,
         CodeProject\Providers\CodeProjectRepositoryProvider::class,
 
-        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
-        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+        \LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        \LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
 
     ],
 

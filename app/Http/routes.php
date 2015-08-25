@@ -11,8 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Response;
+use LucaDegasperi\OAuth2Server\Facades\Authorizer;
+
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('oauth/access_token', function() {
+    return Response::json(Authorizer::issueAccessToken());
+    //
 });
 
 Route::get('client','ClientController@index');
