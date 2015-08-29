@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of OAuth 2.0 Laravel.
  *
@@ -8,11 +7,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-use Illuminate\Support\Facades\Auth;
-
 return [
-
+    /*
+    |--------------------------------------------------------------------------
+    | Database Connection to use
+    |--------------------------------------------------------------------------
+    |
+    | Set the default database connection to use for the repositories, when
+    | set to default, it uses whatever connection you specified in your
+    | laravel database config.
+    |
+    */
+    'database' => 'default',
     /*
     |--------------------------------------------------------------------------
     | Supported Grant Types
@@ -29,19 +35,17 @@ return [
     |
     */
     'grant_types' => [
-        'password'=>[
-            'class'=> '\League\OAuth2\Server\Grant\PasswordGrant',
-            'callback' => function($username, $password){
-                if(Auth::validate(['email'=>$username, 'password'=>$password])){
-                    $user = \CodeProject\Entities\User::where('email', $username)->first();
-                    return $user->id;
-                }
-                return false;
-            },
+        'password' => [
+            'class' => '\League\OAuth2\Server\Grant\PasswordGrant',
+            'callback' => '\CodeProject\OAuth\Verifier@verify',
             'access_token_ttl' => 3600
+        ],
+        'refresh_token' => [
+            'class' => '\League\OAuth2\Server\Grant\RefreshTokenGrant',
+            'access_token_ttl' => 3600,
+            'refresh_token_ttl' => 36000
         ]
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Output Token Type
@@ -53,9 +57,7 @@ return [
     | Default value is League\OAuth2\Server\TokenType\Bearer
     |
     */
-
     'token_type' => 'League\OAuth2\Server\TokenType\Bearer',
-
     /*
     |--------------------------------------------------------------------------
     | State Parameter
@@ -64,9 +66,7 @@ return [
     | Whether or not the state parameter is required in the query string.
     |
     */
-
     'state_param' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Scope Parameter
@@ -75,9 +75,7 @@ return [
     | Whether or not the scope parameter is required in the query string.
     |
     */
-
     'scope_param' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Scope Delimiter
@@ -86,9 +84,7 @@ return [
     | Which character to use to split the scope parameter in the query string.
     |
     */
-
     'scope_delimiter' => ',',
-
     /*
     |--------------------------------------------------------------------------
     | Default Scope
@@ -97,9 +93,7 @@ return [
     | The default scope to use if not present in the query string.
     |
     */
-
     'default_scope' => null,
-
     /*
     |--------------------------------------------------------------------------
     | Access Token TTL
@@ -109,9 +103,7 @@ return [
     | also set on a per grant-type basis.
     |
     */
-
     'access_token_ttl' => 3600,
-
     /*
     |--------------------------------------------------------------------------
     | Limit clients to specific grants
@@ -121,9 +113,7 @@ return [
     | to allow only trusted clients to access your API differently.
     |
     */
-
     'limit_clients_to_grants' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Limit clients to specific scopes
@@ -133,9 +123,7 @@ return [
     | only allow specific clients to use some scopes.
     |
     */
-
     'limit_clients_to_scopes' => false,
-
     /*
     |--------------------------------------------------------------------------
     | Limit scopes to specific grants
@@ -145,9 +133,7 @@ return [
     | allow certain scopes to be used only with certain grant types.
     |
     */
-
     'limit_scopes_to_grants' => false,
-
     /*
     |--------------------------------------------------------------------------
     | HTTP Header Only
@@ -157,7 +143,5 @@ return [
     | By default it checks both the query string and the http headers.
     |
     */
-
     'http_headers_only' => false,
-
 ];
