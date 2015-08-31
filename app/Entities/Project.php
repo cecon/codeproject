@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
+/**
+ * Class Project
+ * @package CodeProject\Entities
+ */
 class Project extends Model implements Transformable
 {
     use TransformableTrait;

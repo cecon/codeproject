@@ -42,7 +42,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         return $this->projectService->create($request->all());
     }
 
@@ -57,7 +56,7 @@ class ProjectController extends Controller
         if($this->checProjectPermission($id) == false){
             return ['error'=>'Access Forbiden'];
         }
-        return$this->repository->find($id);
+        return $this->repository->find($id);
     }
 
     /**
