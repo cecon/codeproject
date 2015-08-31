@@ -31,7 +31,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        return $this->repository->all();
+        return $this->repository->findWhere(['owner_id'=> \Authorizer::getResourceOwnerId()]);
     }
 
     /**
@@ -54,6 +54,9 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+        if($this->checProjectPermission($id) == false){
+            return ['error'=>'Access Forbiden'];
+        }
         return$this->repository->find($id);
     }
 
@@ -66,6 +69,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($this->CheckProjectOwnerId($id) == false){
+            return ['error'=>'Access Forbiden'];
+        }
         return $this->projectService->update($request->all(), $id);
     }
 
@@ -77,6 +83,29 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
+        if($this->CheckProjectOwnerId($id) == false){
+            return ['error'=>'Access Forbiden'];
+        }
         $this->repository->delete($id);
+    }
+
+    private function CheckProjectOwnerId($projectId)
+    {
+        $userId = \Authorizer::getResourceOwnerId();
+        return $this->repository->isOwner($projectId, $userId);
+    }
+
+    private function CheckProjectMember($projectId)
+    {
+        $userId = \Authorizer::getResourceOwnerId();
+        return $this->repository->hasMember($projectId, $userId);
+    }
+
+    private function checProjectPermission($projectId)
+    {
+        if($this->CheckProjectOwnerId($projectId) or $this->CheckProjectMember($projectId)){
+            return true;
+        }
+        return false;
     }
 }
