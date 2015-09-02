@@ -10,32 +10,23 @@ use Prettus\Repository\Traits\TransformableTrait;
  * Class Project
  * @package CodeProject\Entities
  */
-class Project extends Model implements Transformable
+class ProjectFile extends Model implements Transformable
 {
     use TransformableTrait;
 
     protected $fillable = [
         'name',
         'description',
-        'progress',
-        'status',
-        'due_date',
-        'owner_id',
-        'client_id'
+        'extension'
     ];
 
-    public function notes()
+    public function project()
     {
-        return $this->hasMany(ProjectNote::class);
+        return $this->belongsTo(ProjectNote::class);
     }
 
     public function members()
     {
         return $this->belongsToMany(User::class, 'project_members', 'project_id' ,'member_id');
-    }
-
-    public function files()
-    {
-        return $this->hasMany(ProjectFile::class);
     }
 }
